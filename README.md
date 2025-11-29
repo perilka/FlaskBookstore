@@ -1,63 +1,27 @@
-# Bookstore Web App
+# FlaskBookstore
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
+[![Flask](https://img.shields.io/badge/flask-2.3%2B-green)](https://flask.palletsprojects.com/)
 
-Веб-приложение интернет-магазина книг на Flask с поддержкой регистрации, корзины, оформления заказов и отзывов.
+Full-featured online bookstore built with Flask: user auth, catalog, cart, orders, reviews and JSON data import.
 
-## Возможности
+## Features
+- Registration / login with phone + email
+- Book catalog with genres and search
+- Shopping cart + order history
+- Reviews and ratings
+- One-click data import from JSON (`migrate_books.py`)
 
-- Регистрация и авторизация пользователей  
-- Просмотр каталога книг с обложками, рейтингом и описанием  
-- Добавление книг в корзину  
-- Оформление заказов с выбором адреса доставки  
-- Оставление отзывов и оценок к книгам  
-- Панель управления заказами (по статусам)  
+## Stack
+- Flask + SQLAlchemy
+- Flask-Login + WTForms
+- Jinja2 + Bootstrap
+- SQLite (easy switch to PostgreSQL)
 
-## Технологии
-
-- **Backend**: Flask, SQLAlchemy  
-- **Аутентификация**: Flask-Login  
-- **Формы и валидация**: Flask-WTF  
-- **База данных**: PostgreSQL  
-- **Конфигурация**: Pydantic + `.env`  
-- **Прочее**: HTML-шаблоны Jinja2, Bootstrap, логирование  
-
-
-## Установка и запуск
-
-1. **Клонируйте этот репозиторий**
-
-2. **Создайте и активируйте виртуальное окружение**
-
+## Run
 ```bash
-python -m venv venv
-source venv/bin/activate
-venv\Scripts\activate.bat
-```
-
-3. **Установите зависимости**
-
-```bash
+python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-```
-
-4. **Создайте файл .env (пример):**
-
-```bash
-DATABASE_URL=postgresql://user:password@localhost:5432/your_database
-SECRET_KEY=your_secret_key
-APP_PORT=5000
-DEBUG=True
-```
-
-5. **Заполните таблицу книг**
-
-Запустите скрипт для загрузки данных из static/json/books_catalog.json:
-```bash
 python migrate_books.py
-```
-
-6. **Запустите приожение**
-
-```bash
 python app.py
 ```
-
+Open http://127.0.0.1:5000
